@@ -1,0 +1,116 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 30
+    labels:
+      - 'dependencies'
+      - 'npm'
+    versioning-strategy: auto
+
+    groups:
+      midnight:
+        patterns:
+          - "@midnight-ntwrk/*"
+      frontend-tooling:
+        patterns:
+          - "vite"
+          - "vite-*"
+          - "@vitejs/*"
+          - "esbuild"
+          - "vite-plugin-*"
+      eslint-tooling:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "typescript-eslint"
+      react-ecosystem:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      testing:
+        patterns:
+          - "@types/*"
+          - "typescript"
+          - "vitest"
+          - "jest"
+          - "@testing-library/*"
+
+  - package-ecosystem: "npm"
+    directory: "/contract"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 30
+    labels:
+      - 'dependencies'
+      - 'npm'
+      - 'contract'
+    versioning-strategy: auto
+
+    groups:
+      midnight:
+        patterns:
+          - "@midnight-ntwrk/*"
+      eslint-tooling:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "typescript-eslint"
+      testing:
+        patterns:
+          - "@types/*"
+          - "typescript"
+          - "vitest"
+          - "jest"
+          - "@testing-library/*"
+
+  - package-ecosystem: "npm"
+    directory: "/bboard-cli"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 30
+    labels:
+      - 'dependencies'
+      - 'npm'
+      - 'counter-cli'
+    versioning-strategy: auto
+
+    groups:
+      midnight:
+        patterns:
+          - "@midnight-ntwrk/*"
+      eslint-tooling:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "typescript-eslint"
+      testing:
+        patterns:
+          - "@types/*"
+          - "typescript"
+          - "vitest"
+          - "jest"
+          - "@testing-library/*"
